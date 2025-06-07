@@ -1,0 +1,4 @@
+FROM node:24.1.0-slim
+WORKDIR /root
+RUN npm install --no-save playwright-core@1.52.0
+RUN mv node_modules /

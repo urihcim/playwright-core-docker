@@ -1,0 +1,4 @@
+FROM oven/bun:1.2.15-slim
+WORKDIR /
+RUN bun add --no-save playwright-core@1.52.0
+RUN sed -i 's%require("./utilsBundleImpl").ws;%require("ws");%' node_modules/playwright-core/lib/utilsBundle.js
