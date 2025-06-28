@@ -20,11 +20,11 @@ jobs:
       - name: Set environment variables
         run: |
           echo "IMAGE=ghcr.io/${{ github.repository_owner }}/playwright-core" >> $GITHUB_ENV
-          version=$(grep -oP 'playwright-core@\K[0-9.]+(?=\s|$)' Dockerfile.node | head -1)
+          version=$(grep -oP 'playwright-core@\K[0-9.]+' Dockerfile.node | head -1)
           echo "VERSION=$version" >> $GITHUB_ENV
-          node_version=$(grep -oP 'FROM node:\K[^\s]+' Dockerfile.node | head -1)
+          node_version=$(grep -oP 'FROM node:\K[0-9.]+' Dockerfile.node | head -1)
           echo "NODE_VERSION=$node_version" >> $GITHUB_ENV
-          bun_version=$(grep -oP 'FROM oven/bun:\K[^\s]+' Dockerfile.bun | head -1)
+          bun_version=$(grep -oP 'FROM oven/bun:\K[0-9.]+' Dockerfile.bun | head -1)
           echo "BUN_VERSION=$bun_version" >> $GITHUB_ENV
 
       - name: Set up Docker Buildx
