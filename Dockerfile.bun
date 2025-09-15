@@ -1,4 +1,4 @@
-FROM oven/bun:1.2.21-slim
+FROM oven/bun:1.2.22-slim
 WORKDIR /
 RUN bun add --no-save playwright-core@1.52.0
 # https://github.com/oven-sh/bun/issues/9911
